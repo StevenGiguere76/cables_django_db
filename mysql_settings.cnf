@@ -1,0 +1,5 @@
+[client]
+database = module_information
+user = steveng
+password = temp123
+default-character-set = utf8
