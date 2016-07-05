@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.9/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
-
+import sys
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -71,7 +71,22 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'cables_db.wsgi.application'
 
-
+LOGGING = {
+    'version': 1,
+    'handlers': {
+    'console':{
+        'level':'INFO',
+        'class':'logging.StreamHandler',
+        'stream': sys.stdout
+        }
+    },
+    'loggers': {
+        'cables_db' : {
+            'handlers' : ['console'],
+            'level' : 'INFO'
+        }
+    }   
+}
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
