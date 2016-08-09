@@ -2,7 +2,6 @@ from __future__ import unicode_literals
 
 from django.db import models
 from datetime import date
-from django.utils import timezone
 
 # Create your models here.
 
@@ -30,7 +29,7 @@ class CableModule(models.Model):
         return build_string
 
 class TestResult(models.Model):
-    date_tested = models.DateField('Date Tested', default=timezone.now())
+    date_tested = models.DateField('Date Tested', auto_now_add=True)
     qsa_used = models.BooleanField('QSA Used?')
     speed = models.CharField('Speed Tested', max_length=64)
     bug_id = models.URLField('Bug-ID', null=True)
